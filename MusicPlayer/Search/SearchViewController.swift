@@ -19,6 +19,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     private let searchController = UISearchController(searchResultsController: nil)
     private var searchViewModel = SearchViewModel(cells: [])
     private var timer: Timer?
+    private lazy var footerView = FooterView()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -64,12 +65,13 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     //MARK: FUNCTIONS
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
         switch viewModel {
-        case .some:
-            print("viewController .some")
         case .displaySearchResults(let searchViewModel):
             print("viewController .displaySearchResults")
             self.searchViewModel = searchViewModel
             tableView.reloadData()
+            footerView.hideLoader()
+        case .displayFooterView:
+            footerView.showLoader()
         }
     }
     
@@ -84,6 +86,8 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         tableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: TrackCell.reuseId)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = footerView
+        
     }
 }
 
@@ -104,8 +108,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 84
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "Please enter search query above..."
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return searchViewModel.cells.count > 0 ? 0 : 250
+    }
 }
 
+//MARK: UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()

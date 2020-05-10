@@ -27,6 +27,8 @@
 		1FF51C562464485C007B07E2 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF51C4F2464485C007B07E2 /* SearchViewController.xib */; };
 		1FF51C5824645689007B07E2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF51C5724645689007B07E2 /* SearchViewController.swift */; };
 		1FFCDD0A2468866100908DC6 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCDD092468866100908DC6 /* WebImageView.swift */; };
+		1FFCDD0E2468AD0F00908DC6 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCDD0D2468AD0F00908DC6 /* FooterView.swift */; };
+		1FFCDD102468ADA400908DC6 /* UIColor + HexValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCDD0F2468ADA400908DC6 /* UIColor + HexValue.swift */; };
 		CCDF01C31581ED6B9280A228 /* libPods-MusicPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A2336D979FE30848065E63 /* libPods-MusicPlayer.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		1FF51C4F2464485C007B07E2 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		1FF51C5724645689007B07E2 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1FFCDD092468866100908DC6 /* WebImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		1FFCDD0D2468AD0F00908DC6 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		1FFCDD0F2468ADA400908DC6 /* UIColor + HexValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + HexValue.swift"; sourceTree = "<group>"; };
 		62A2336D979FE30848065E63 /* libPods-MusicPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusicPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A83D1B77E7BCD0654E69D1 /* Pods-MusicPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayer.debug.xcconfig"; path = "Target Support Files/Pods-MusicPlayer/Pods-MusicPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		C10AFCBE7F337834A43BEA20 /* Pods_MusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,7 @@
 		1FF51C382464477D007B07E2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				1FFCDD0C2468ACF400908DC6 /* FooterView */,
 				1F170C2B246878620064C6D4 /* Cell */,
 				1FF51C5724645689007B07E2 /* SearchViewController.swift */,
 				1FF51C492464485C007B07E2 /* SearchPresenter.swift */,
@@ -161,8 +166,17 @@
 			isa = PBXGroup;
 			children = (
 				1FFCDD092468866100908DC6 /* WebImageView.swift */,
+				1FFCDD0F2468ADA400908DC6 /* UIColor + HexValue.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1FFCDD0C2468ACF400908DC6 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				1FFCDD0D2468AD0F00908DC6 /* FooterView.swift */,
+			);
+			path = FooterView;
 			sourceTree = "<group>";
 		};
 		50F843DDC3605F6F960DA16B /* Frameworks */ = {
@@ -283,10 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FDFA463245F25C200851E9F /* SearchMusicViewController.swift in Sources */,
+				1FFCDD102468ADA400908DC6 /* UIColor + HexValue.swift in Sources */,
 				1FDFA451245F240500851E9F /* ViewController.swift in Sources */,
 				1F15758924637A920053028F /* SearchResponse.swift in Sources */,
 				1FF51C552464485C007B07E2 /* SearchInteractor.swift in Sources */,
 				1FDFA44D245F240500851E9F /* AppDelegate.swift in Sources */,
+				1FFCDD0E2468AD0F00908DC6 /* FooterView.swift in Sources */,
 				1FDFA461245F246000851E9F /* MainTabBarController.swift in Sources */,
 				1FF51C512464485C007B07E2 /* SearchWorker.swift in Sources */,
 				1F170C2F246878BE0064C6D4 /* TrackCell.swift in Sources */,
