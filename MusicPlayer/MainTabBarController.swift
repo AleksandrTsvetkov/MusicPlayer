@@ -14,7 +14,7 @@ class MainTabBarController: UITabBarController {
         view.backgroundColor = .white
         tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3764705882, alpha: 1)
         
-        let searchVC = SearchViewController()
+        let searchVC = SearchViewController(nibName: "SearchViewController", bundle: nil)
         let libraryVC = ViewController()
         let searchNC = generateViewController(rootViewController: searchVC, image: UIImage(named: "Search"), title: "Search")
         let libraryNC = generateViewController(rootViewController: libraryVC, image: UIImage(named: "Library"), title: "Library")

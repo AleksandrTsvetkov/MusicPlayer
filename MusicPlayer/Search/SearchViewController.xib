@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="MusicPlayer" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="vyr-iX-APK" id="jPE-GP-g1C"/>
+                <outlet property="view" destination="wg4-Ry-a4x" id="dGA-dX-l4c"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="wg4-Ry-a4x">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vyr-iX-APK">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="vyr-iX-APK" firstAttribute="leading" secondItem="wg4-Ry-a4x" secondAttribute="leading" id="Ibs-5q-bDa"/>
+                <constraint firstAttribute="trailing" secondItem="vyr-iX-APK" secondAttribute="trailing" id="L2Y-DZ-Qjy"/>
+                <constraint firstItem="vyr-iX-APK" firstAttribute="top" secondItem="wg4-Ry-a4x" secondAttribute="top" id="Qmf-JM-zg6"/>
+                <constraint firstAttribute="bottom" secondItem="vyr-iX-APK" secondAttribute="bottom" id="e0f-zf-n8U"/>
+            </constraints>
+            <point key="canvasLocation" x="294" y="1017"/>
+        </view>
+    </objects>
+</document>
