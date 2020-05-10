@@ -29,6 +29,8 @@
 		1FFCDD0A2468866100908DC6 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCDD092468866100908DC6 /* WebImageView.swift */; };
 		1FFCDD0E2468AD0F00908DC6 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCDD0D2468AD0F00908DC6 /* FooterView.swift */; };
 		1FFCDD102468ADA400908DC6 /* UIColor + HexValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCDD0F2468ADA400908DC6 /* UIColor + HexValue.swift */; };
+		1FFCDD132468B4EE00908DC6 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FFCDD122468B4EE00908DC6 /* TrackDetailView.xib */; };
+		1FFCDD152468B4FA00908DC6 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCDD142468B4FA00908DC6 /* TrackDetailView.swift */; };
 		CCDF01C31581ED6B9280A228 /* libPods-MusicPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A2336D979FE30848065E63 /* libPods-MusicPlayer.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		1FFCDD092468866100908DC6 /* WebImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		1FFCDD0D2468AD0F00908DC6 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		1FFCDD0F2468ADA400908DC6 /* UIColor + HexValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + HexValue.swift"; sourceTree = "<group>"; };
+		1FFCDD122468B4EE00908DC6 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
+		1FFCDD142468B4FA00908DC6 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		62A2336D979FE30848065E63 /* libPods-MusicPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusicPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A83D1B77E7BCD0654E69D1 /* Pods-MusicPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayer.debug.xcconfig"; path = "Target Support Files/Pods-MusicPlayer/Pods-MusicPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		C10AFCBE7F337834A43BEA20 /* Pods_MusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,7 @@
 		1FF51C382464477D007B07E2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				1FFCDD112468B4C500908DC6 /* TrackDetailView */,
 				1FFCDD0C2468ACF400908DC6 /* FooterView */,
 				1F170C2B246878620064C6D4 /* Cell */,
 				1FF51C5724645689007B07E2 /* SearchViewController.swift */,
@@ -177,6 +182,15 @@
 				1FFCDD0D2468AD0F00908DC6 /* FooterView.swift */,
 			);
 			path = FooterView;
+			sourceTree = "<group>";
+		};
+		1FFCDD112468B4C500908DC6 /* TrackDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				1FFCDD122468B4EE00908DC6 /* TrackDetailView.xib */,
+				1FFCDD142468B4FA00908DC6 /* TrackDetailView.swift */,
+			);
+			path = TrackDetailView;
 			sourceTree = "<group>";
 		};
 		50F843DDC3605F6F960DA16B /* Frameworks */ = {
@@ -260,6 +274,7 @@
 				1F170C2D2468789D0064C6D4 /* TrackCell.xib in Resources */,
 				1FDFA456245F240900851E9F /* Assets.xcassets in Resources */,
 				1FF51C562464485C007B07E2 /* SearchViewController.xib in Resources */,
+				1FFCDD132468B4EE00908DC6 /* TrackDetailView.xib in Resources */,
 				1FDFA454245F240500851E9F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +319,7 @@
 				1FDFA44D245F240500851E9F /* AppDelegate.swift in Sources */,
 				1FFCDD0E2468AD0F00908DC6 /* FooterView.swift in Sources */,
 				1FDFA461245F246000851E9F /* MainTabBarController.swift in Sources */,
+				1FFCDD152468B4FA00908DC6 /* TrackDetailView.swift in Sources */,
 				1FF51C512464485C007B07E2 /* SearchWorker.swift in Sources */,
 				1F170C2F246878BE0064C6D4 /* TrackCell.swift in Sources */,
 				1FF51C522464485C007B07E2 /* SearchRouter.swift in Sources */,
