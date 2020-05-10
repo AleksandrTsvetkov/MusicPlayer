@@ -26,6 +26,7 @@
 		1FF51C552464485C007B07E2 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF51C4E2464485C007B07E2 /* SearchInteractor.swift */; };
 		1FF51C562464485C007B07E2 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF51C4F2464485C007B07E2 /* SearchViewController.xib */; };
 		1FF51C5824645689007B07E2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF51C5724645689007B07E2 /* SearchViewController.swift */; };
+		1FFCDD0A2468866100908DC6 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFCDD092468866100908DC6 /* WebImageView.swift */; };
 		CCDF01C31581ED6B9280A228 /* libPods-MusicPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A2336D979FE30848065E63 /* libPods-MusicPlayer.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		1FF51C4E2464485C007B07E2 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		1FF51C4F2464485C007B07E2 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		1FF51C5724645689007B07E2 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1FFCDD092468866100908DC6 /* WebImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		62A2336D979FE30848065E63 /* libPods-MusicPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusicPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A83D1B77E7BCD0654E69D1 /* Pods-MusicPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayer.debug.xcconfig"; path = "Target Support Files/Pods-MusicPlayer/Pods-MusicPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		C10AFCBE7F337834A43BEA20 /* Pods_MusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,7 @@
 		1FDFA44B245F240500851E9F /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				1FFCDD0B2468866500908DC6 /* Helpers */,
 				1FDFA460245F246000851E9F /* MainTabBarController.swift */,
 				1FDFA462245F25C200851E9F /* SearchMusicViewController.swift */,
 				1FDFA450245F240500851E9F /* ViewController.swift */,
@@ -152,6 +155,14 @@
 				1F15758A2463889A0053028F /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		1FFCDD0B2468866500908DC6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1FFCDD092468866100908DC6 /* WebImageView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		50F843DDC3605F6F960DA16B /* Frameworks */ = {
@@ -284,6 +295,7 @@
 				1FF51C532464485C007B07E2 /* SearchModels.swift in Sources */,
 				1FDFA44F245F240500851E9F /* SceneDelegate.swift in Sources */,
 				1FF51C502464485C007B07E2 /* SearchPresenter.swift in Sources */,
+				1FFCDD0A2468866100908DC6 /* WebImageView.swift in Sources */,
 				1F15758B2463889A0053028F /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

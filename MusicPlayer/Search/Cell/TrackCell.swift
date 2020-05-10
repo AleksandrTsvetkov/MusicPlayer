@@ -18,19 +18,24 @@ protocol TrackCellViewModel {
 class TrackCell: UITableViewCell {
 
     static let reuseId = "TrackCell"
-    @IBOutlet weak var trackImageView: UIImageView!
+    @IBOutlet weak var trackImageView: WebImageView!
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        trackImageView.image = nil
     }
     
     func set(with model: TrackCellViewModel) {
         trackNameLabel.text = model.trackName
         collectionNameLabel.text = model.collectionName
         artistNameLabel.text = model.artistName
+        trackImageView.set(imageURL: model.iconUrlString)
     }
 }
