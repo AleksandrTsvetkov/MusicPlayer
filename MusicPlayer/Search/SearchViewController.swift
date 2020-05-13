@@ -59,7 +59,6 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         super.viewDidLoad()
         setupSearchBar()
         setupTableView()
-        
     }
     
     //MARK: FUNCTIONS
