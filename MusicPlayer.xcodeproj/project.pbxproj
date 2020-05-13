@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F15686B246C2E4100504445 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15686A246C2E4100504445 /* Nib.swift */; };
 		1F15758924637A920053028F /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15758824637A920053028F /* SearchResponse.swift */; };
 		1F15758B2463889A0053028F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15758A2463889A0053028F /* NetworkService.swift */; };
 		1F170C2D2468789D0064C6D4 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F170C2C2468789D0064C6D4 /* TrackCell.xib */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F15686A246C2E4100504445 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		1F15758824637A920053028F /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		1F15758A2463889A0053028F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1F170C2C2468789D0064C6D4 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				1FFCDD092468866100908DC6 /* WebImageView.swift */,
 				1FFCDD0F2468ADA400908DC6 /* UIColor + HexValue.swift */,
 				1F655EBD246B297D000BE361 /* CMTime + Extension.swift */,
+				1F15686A246C2E4100504445 /* Nib.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FDFA463245F25C200851E9F /* SearchMusicViewController.swift in Sources */,
+				1F15686B246C2E4100504445 /* Nib.swift in Sources */,
 				1FFCDD102468ADA400908DC6 /* UIColor + HexValue.swift in Sources */,
 				1FDFA451245F240500851E9F /* ViewController.swift in Sources */,
 				1F15758924637A920053028F /* SearchResponse.swift in Sources */,

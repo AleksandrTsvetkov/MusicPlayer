@@ -27,7 +27,6 @@ class NetworkService {
             let decoder = JSONDecoder()
             do {
                 let searchResponse = try decoder.decode(SearchResponse.self, from: data)
-                print(searchResponse)
                 completion(searchResponse)
             } catch {
                 print("Failed to decode in \(#function) -> \(error.localizedDescription)")

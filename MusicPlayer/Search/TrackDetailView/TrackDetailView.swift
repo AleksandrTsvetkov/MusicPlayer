@@ -31,7 +31,8 @@ class TrackDetailView: UIView {
         return player
     }()
     
-    weak var delegate: PlaylistNavigationDelegate!
+    weak var playlistDelegate: PlaylistNavigationDelegate!
+    weak var transitionDelegate: TrackDetailViewTransitionDelegate!
     
     //MARK: INITIAL SETUP
     override func awakeFromNib() {
@@ -107,7 +108,8 @@ class TrackDetailView: UIView {
     
     //MARK: ACTIONS
     @IBAction func dragDownButtonTapped(_ sender: UIButton) {
-        self.removeFromSuperview()
+        self.transitionDelegate.minimizeTrackDetailView()
+        //self.removeFromSuperview()
     }
     
     @IBAction func handleCurrentTimeSlider(_ sender: UISlider) {
@@ -123,7 +125,7 @@ class TrackDetailView: UIView {
     }
     
     @IBAction func previousTrack(_ sender: UIButton) {
-        guard let cellViewModel = delegate.switchToPreviousTrack() else { return }
+        guard let cellViewModel = playlistDelegate.switchToPreviousTrack() else { return }
         self.set(viewModel: cellViewModel)
     }
     
@@ -140,7 +142,7 @@ class TrackDetailView: UIView {
     }
     
     @IBAction func nextTrack(_ sender: UIButton) {
-        guard let cellViewModel = delegate.switchToPreviousTrack() else { return }
+        guard let cellViewModel = playlistDelegate.switchToPreviousTrack() else { return }
         self.set(viewModel: cellViewModel)
     }
     
