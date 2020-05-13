@@ -88,13 +88,13 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon Min" translatesAutoresizingMaskIntoConstraints="NO" id="YH4-Ns-jlx">
                     <rect key="frame" x="23" y="523" width="7" height="12"/>
                 </imageView>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IVN-f5-gSP">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IVN-f5-gSP">
                     <rect key="frame" x="38" y="514" width="244" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="p6f-FY-R1Q"/>
                     </constraints>
                     <connections>
-                        <action selector="handleVolumeTimer:" destination="AaV-Kb-6kY" eventType="valueChanged" id="5Kh-Ce-nZl"/>
+                        <action selector="handleVolumeSlider:" destination="AaV-Kb-6kY" eventType="valueChanged" id="5Kh-Ce-nZl"/>
                     </connections>
                 </slider>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconMax" translatesAutoresizingMaskIntoConstraints="NO" id="Htp-0T-W9D">

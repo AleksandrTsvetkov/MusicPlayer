@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum Track {
+    case previous
+    case next
+}
+
 protocol SearchDisplayLogic: class {
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData)
 }
@@ -109,6 +114,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         let trackDetailView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as! TrackDetailView
         trackDetailView.set(viewModel: cellViewModel)
+        trackDetailView.delegate = self
         window?.addSubview(trackDetailView)
         
     }
@@ -137,5 +143,39 @@ extension SearchViewController: UISearchBarDelegate {
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
             self.interactor?.makeRequest(request: .getSearchResults(searchText: searchText))
         })
+    }
+}
+
+//MARK: PlaylistNavigationDelegate
+extension SearchViewController: PlaylistNavigationDelegate {
+    
+    private func changeTrack(to expectedTrack: Track) -> SearchViewModel.Cell? {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
+        tableView.deselectRow(at: indexPath, animated: true)
+        var nextIndexPath: IndexPath!
+        
+        switch expectedTrack {
+        case .previous:
+            nextIndexPath = IndexPath(row: indexPath.row - 1, section: indexPath.section)
+            if nextIndexPath.row == -1 {
+                nextIndexPath.row = searchViewModel.cells.count - 1
+            }
+        case .next:
+            nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+            if nextIndexPath.row == searchViewModel.cells.count {
+                nextIndexPath.row = 0
+            }
+        }
+        tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
+        let cellViewModel = searchViewModel.cells[nextIndexPath.row]
+        return cellViewModel
+    }
+    
+    func switchToPreviousTrack() -> SearchViewModel.Cell? {
+        return changeTrack(to: .previous)
+    }
+    
+    func switchToNextTrack() -> SearchViewModel.Cell? {
+        return changeTrack(to: .next)
     }
 }

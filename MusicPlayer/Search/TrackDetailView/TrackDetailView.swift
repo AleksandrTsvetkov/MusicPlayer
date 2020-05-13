@@ -9,6 +9,11 @@
 import UIKit
 import AVFoundation
 
+protocol PlaylistNavigationDelegate: class {
+    func switchToPreviousTrack() -> SearchViewModel.Cell?
+    func switchToNextTrack() -> SearchViewModel.Cell?
+}
+
 class TrackDetailView: UIView {
     
     @IBOutlet weak var trackImageView: WebImageView!
@@ -25,6 +30,8 @@ class TrackDetailView: UIView {
         player.automaticallyWaitsToMinimizeStalling = false
         return player
     }()
+    
+    weak var delegate: PlaylistNavigationDelegate!
     
     //MARK: INITIAL SETUP
     override func awakeFromNib() {
@@ -58,6 +65,7 @@ class TrackDetailView: UIView {
         avPlayer.play()
     }
     
+    //MARK: TIME SETUP
     private func monitorStartTime() {
         let time = CMTimeMake(value: 1, timescale: 3)
         let times: Array<NSValue> = [NSValue(time: time)]
@@ -73,7 +81,15 @@ class TrackDetailView: UIView {
             let durationTime = self?.avPlayer.currentItem?.duration
             let currentDurationText = ((durationTime ?? CMTimeMake(value: 1, timescale: 1)) - time).convertToString()
             self?.durationLabel.text = "-\(currentDurationText)"
+            self?.updateCurrentTimeSlider()
         }
+    }
+    
+    private func updateCurrentTimeSlider() {
+        let currentTimeSeconds = CMTimeGetSeconds(avPlayer.currentTime())
+        let durationSeconds = CMTimeGetSeconds(avPlayer.currentItem?.duration ?? CMTimeMake(value: 1, timescale: 1))
+        let timeRatio = currentTimeSeconds / durationSeconds
+        self.currentTimeSlider.value = Float(timeRatio)
     }
     
     //MARK: ANIMATIONS
@@ -95,12 +111,20 @@ class TrackDetailView: UIView {
     }
     
     @IBAction func handleCurrentTimeSlider(_ sender: UISlider) {
+        guard let duration = avPlayer.currentItem?.duration else { return }
+        let durationInSeconds = CMTimeGetSeconds(duration)
+        let seekTimeInSeconds = durationInSeconds * Float64(currentTimeSlider.value)
+        let seekTime = CMTimeMakeWithSeconds(seekTimeInSeconds, preferredTimescale: 1)
+        avPlayer.seek(to: seekTime)
     }
     
-    @IBAction func handleVolumeTimer(_ sender: UISlider) {
+    @IBAction func handleVolumeSlider(_ sender: UISlider) {
+        avPlayer.volume = volumeSlider.value
     }
     
     @IBAction func previousTrack(_ sender: UIButton) {
+        guard let cellViewModel = delegate.switchToPreviousTrack() else { return }
+        self.set(viewModel: cellViewModel)
     }
     
     @IBAction func playPauseAction(_ sender: UIButton) {
@@ -116,6 +140,8 @@ class TrackDetailView: UIView {
     }
     
     @IBAction func nextTrack(_ sender: UIButton) {
+        guard let cellViewModel = delegate.switchToPreviousTrack() else { return }
+        self.set(viewModel: cellViewModel)
     }
     
 }
