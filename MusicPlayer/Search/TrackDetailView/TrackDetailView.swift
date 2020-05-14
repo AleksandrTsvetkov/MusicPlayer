@@ -53,6 +53,7 @@ class TrackDetailView: UIView {
         if let view = mpVolumeView.subviews.first as? UISlider {
             volumeSlider.value = view.value
         }
+        setupGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(volumeDidChange), name: NSNotification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"), object: nil)
     }
     
@@ -69,7 +70,12 @@ class TrackDetailView: UIView {
         observePlayerCurrentTime()
     }
     
-    //MARK: FUNCTIONS
+    private func setupGestures() {
+        miniPlayerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        miniPlayerView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+    }
+    
+    //MARK: METHODS
     private func playTrack(previewUrl: String?) {
         guard
             let urlString = previewUrl,
@@ -83,10 +89,55 @@ class TrackDetailView: UIView {
         avPlayer.play()
     }
     
+    //MARK: OBJC METHODS
+    @objc private func handleTap() {
+        self.transitionDelegate.maximizeTrackDetailView(viewModel: nil)
+    }
+    
+    @objc private func handlePan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            print("began")
+        case .changed:
+            handlePanChangedState(gesture: gesture)
+        case .ended:
+            handlePanEndedState(gesture: gesture)
+        default:
+            print("default")
+        }
+    }
+    
     @objc private func volumeDidChange() {
         if let view = mpVolumeView.subviews.first as? UISlider {
-             volumeSlider.value = view.value
+            volumeSlider.value = view.value
         }
+    }
+    
+    //MARK: HANDLE PAN GESTURES
+    private func handlePanChangedState(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        self.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        let newAlpha = 1 + translation.y / 200
+        self.miniPlayerView.alpha = newAlpha < 0 ? 0 : newAlpha
+        _ = self.fullScreenView.map { element in
+            element.alpha = -translation.y / 200
+        }
+    }
+    
+    private func handlePanEndedState(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.superview)
+        let velocity = gesture.velocity(in: self.superview)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.transform = .identity
+            if translation.y < -200 || velocity.y < -500 {
+                self.transitionDelegate.maximizeTrackDetailView(viewModel: nil)
+            } else {
+                self.miniPlayerView.alpha = 1
+                _ = self.fullScreenView.map { element in
+                    element.alpha = 0
+                }
+            }
+        })
     }
     
     //MARK: TIME SETUP
@@ -148,7 +199,7 @@ class TrackDetailView: UIView {
     @IBAction func handleVolumeSlider(_ sender: UISlider) {
         //avPlayer.volume = volumeSlider.value
         if let view = mpVolumeView.subviews.first as? UISlider {
-             view.value = volumeSlider.value
+            view.value = volumeSlider.value
         }
     }
     
