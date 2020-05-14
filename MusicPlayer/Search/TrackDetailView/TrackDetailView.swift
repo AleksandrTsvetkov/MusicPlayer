@@ -17,6 +17,7 @@ protocol PlaylistNavigationDelegate: class {
 
 class TrackDetailView: UIView {
     
+    //MARK: OUTLETS
     @IBOutlet weak var trackImageView: WebImageView!
     @IBOutlet weak var currentTimeSlider: UISlider!
     @IBOutlet weak var currentTimeLabel: UILabel!
@@ -25,7 +26,15 @@ class TrackDetailView: UIView {
     @IBOutlet weak var artistTitleLabel: UILabel!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var volumeSlider: UISlider!
+    @IBOutlet weak var miniPlayerView: UIView!
+    @IBOutlet weak var miniPlayPauseButton: UIButton!
+    @IBOutlet weak var miniNextTrackButton: UIButton!
+    @IBOutlet weak var miniTrackImageView: WebImageView!
+    @IBOutlet weak var miniTrackTitleLabel: UILabel!
+    @IBOutlet var fullScreenView: [UIView]!
     
+    
+    //MARK: PROPERTIES
     let avPlayer: AVPlayer = {
         let player = AVPlayer()
         player.automaticallyWaitsToMinimizeStalling = false
@@ -49,11 +58,13 @@ class TrackDetailView: UIView {
     
     func set(viewModel: SearchViewModel.Cell) {
         trackTitleLabel.text = viewModel.trackName
+        miniTrackTitleLabel.text = viewModel.trackName
         artistTitleLabel.text = viewModel.artistName
         playTrack(previewUrl: viewModel.previewUrl)
         
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600")
         trackImageView.set(imageURL: string600)
+        miniTrackImageView.set(imageURL: string600)
         monitorStartTime()
         observePlayerCurrentTime()
     }
@@ -84,6 +95,8 @@ class TrackDetailView: UIView {
         let times: Array<NSValue> = [NSValue(time: time)]
         avPlayer.addBoundaryTimeObserver(forTimes: times, queue: .main) { [weak self] in
             self?.enlargeTrackImageView()
+            self?.playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+            self?.miniPlayPauseButton.setImage(UIImage(named: "pause"), for: .normal)
         }
     }
     
@@ -148,10 +161,12 @@ class TrackDetailView: UIView {
         if avPlayer.timeControlStatus == .paused {
             avPlayer.play()
             playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+            miniPlayPauseButton.setImage(UIImage(named: "pause"), for: .normal)
             enlargeTrackImageView()
         } else {
             avPlayer.pause()
             playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+            miniPlayPauseButton.setImage(UIImage(named: "play"), for: .normal)
             reduceTrackImageView()
         }
     }

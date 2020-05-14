@@ -71,6 +71,10 @@ extension MainTabBarController: TrackDetailViewTransitionDelegate {
                        initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                         self.view.layoutIfNeeded()
                         self.tabBar.alpha = 0
+                        self.trackDetailView.miniPlayerView.alpha = 0
+                        _ = self.trackDetailView.fullScreenView.map { element in
+                            element.alpha = 1
+                        }
         })
         guard let cellViewModel = viewModel else { return }
         self.trackDetailView.set(viewModel: cellViewModel)
@@ -85,6 +89,10 @@ extension MainTabBarController: TrackDetailViewTransitionDelegate {
                        initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                         self.view.layoutIfNeeded()
                         self.tabBar.alpha = 1
+                        self.trackDetailView.miniPlayerView.alpha = 1
+                        _ = self.trackDetailView.fullScreenView.map { element in
+                            element.alpha = 0
+                        }
         })
     }
 }

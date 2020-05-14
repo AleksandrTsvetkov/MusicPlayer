@@ -72,7 +72,7 @@
                         <constraint firstAttribute="height" constant="59" id="esZ-gh-R6P"/>
                     </constraints>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" image="pause"/>
+                    <state key="normal" image="play"/>
                     <connections>
                         <action selector="playPauseAction:" destination="AaV-Kb-6kY" eventType="touchUpInside" id="M5d-rF-OAG"/>
                     </connections>
@@ -108,6 +108,79 @@
                         <action selector="previousTrack:" destination="AaV-Kb-6kY" eventType="touchUpInside" id="0dN-1r-b0h"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLE-Q2-0aU">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <subviews>
+                        <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ak9-DC-xLq">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                            <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Imm-09-qHZ"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kJ8-yG-U6B" customClass="WebImageView" customModule="MusicPlayer" customModuleProvider="target">
+                            <rect key="frame" x="8" y="8" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="AAF-J5-uSB"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIU-sa-aiO">
+                            <rect key="frame" x="210" y="12" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="dnY-Yu-Otz"/>
+                                <constraint firstAttribute="width" constant="40" id="hLn-HI-4hD"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="pause">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="playPauseAction:" destination="AaV-Kb-6kY" eventType="touchUpInside" id="aVp-8m-aUR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I4-kA-9nt">
+                            <rect key="frame" x="274" y="22" width="34" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="2R6-cD-vWc"/>
+                                <constraint firstAttribute="width" constant="34" id="g1S-my-tm4"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="Right">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="nextTrack:" destination="AaV-Kb-6kY" eventType="touchUpInside" id="9ZK-nr-tBZ"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG3-rb-Uqk">
+                            <rect key="frame" x="68" y="8" width="126" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="126" id="61Y-2j-1RN"/>
+                                <constraint firstAttribute="height" constant="48" id="IF1-FO-44s"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="4qS-6F-Qhl"/>
+                        <constraint firstAttribute="trailing" secondItem="7I4-kA-9nt" secondAttribute="trailing" constant="12" id="7Oe-SE-7ES"/>
+                        <constraint firstItem="Ak9-DC-xLq" firstAttribute="top" secondItem="FLE-Q2-0aU" secondAttribute="top" id="9Ve-GC-LNV"/>
+                        <constraint firstItem="7I4-kA-9nt" firstAttribute="leading" secondItem="JIU-sa-aiO" secondAttribute="trailing" constant="24" id="HKp-yP-HaL"/>
+                        <constraint firstItem="kJ8-yG-U6B" firstAttribute="top" secondItem="FLE-Q2-0aU" secondAttribute="top" constant="8" id="JDL-aL-w55"/>
+                        <constraint firstItem="Ak9-DC-xLq" firstAttribute="leading" secondItem="FLE-Q2-0aU" secondAttribute="leading" id="UZR-CI-tud"/>
+                        <constraint firstItem="JIU-sa-aiO" firstAttribute="centerY" secondItem="FLE-Q2-0aU" secondAttribute="centerY" id="ZbA-sb-DW7"/>
+                        <constraint firstAttribute="bottom" secondItem="kJ8-yG-U6B" secondAttribute="bottom" constant="8" id="cNj-6Z-euC"/>
+                        <constraint firstItem="kJ8-yG-U6B" firstAttribute="leading" secondItem="FLE-Q2-0aU" secondAttribute="leading" constant="8" id="djB-cw-Igo"/>
+                        <constraint firstItem="bG3-rb-Uqk" firstAttribute="leading" secondItem="kJ8-yG-U6B" secondAttribute="trailing" constant="12" id="goP-gd-yap"/>
+                        <constraint firstAttribute="trailing" secondItem="Ak9-DC-xLq" secondAttribute="trailing" id="icB-TJ-JFr"/>
+                        <constraint firstItem="JIU-sa-aiO" firstAttribute="leading" secondItem="bG3-rb-Uqk" secondAttribute="trailing" priority="750" constant="16" id="jP7-TA-ZXj"/>
+                        <constraint firstItem="7I4-kA-9nt" firstAttribute="centerY" secondItem="FLE-Q2-0aU" secondAttribute="centerY" id="juw-WO-UlS"/>
+                        <constraint firstItem="bG3-rb-Uqk" firstAttribute="centerY" secondItem="FLE-Q2-0aU" secondAttribute="centerY" id="ljh-tA-Isv"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
@@ -120,29 +193,32 @@
                 <constraint firstItem="YH4-Ns-jlx" firstAttribute="centerY" secondItem="IVN-f5-gSP" secondAttribute="centerY" id="FxY-lO-ddM"/>
                 <constraint firstItem="3oI-Q0-yOj" firstAttribute="top" secondItem="znJ-xa-Ph8" secondAttribute="bottom" id="JSF-OQ-aIC"/>
                 <constraint firstItem="3oI-Q0-yOj" firstAttribute="height" secondItem="AaV-Kb-6kY" secondAttribute="height" multiplier="0.4" id="Kby-yg-DsU"/>
-                <constraint firstItem="Qny-fl-8Jy" firstAttribute="trailing" secondItem="Krx-Ot-goJ" secondAttribute="trailing" constant="30" id="Kge-nn-bED"/>
+                <constraint firstAttribute="trailing" secondItem="Krx-Ot-goJ" secondAttribute="trailing" constant="30" id="Kge-nn-bED"/>
                 <constraint firstItem="znJ-xa-Ph8" firstAttribute="top" secondItem="Qny-fl-8Jy" secondAttribute="top" id="Kzk-Wp-j49"/>
                 <constraint firstItem="3oI-Q0-yOj" firstAttribute="centerX" secondItem="Qny-fl-8Jy" secondAttribute="centerX" id="LVh-oT-zcv"/>
                 <constraint firstItem="Fog-kT-6bu" firstAttribute="centerX" secondItem="Qny-fl-8Jy" secondAttribute="centerX" id="Nos-tT-xao"/>
-                <constraint firstItem="Qny-fl-8Jy" firstAttribute="trailing" secondItem="IVN-f5-gSP" secondAttribute="trailing" constant="40" id="OwO-Hj-AaR"/>
+                <constraint firstAttribute="trailing" secondItem="IVN-f5-gSP" secondAttribute="trailing" constant="40" id="OwO-Hj-AaR"/>
                 <constraint firstItem="hqJ-c4-lTC" firstAttribute="top" secondItem="Krx-Ot-goJ" secondAttribute="bottom" constant="4" id="R3U-76-a8i"/>
                 <constraint firstItem="Fog-kT-6bu" firstAttribute="leading" secondItem="BFi-Gs-KR7" secondAttribute="trailing" constant="38" id="RjI-6a-Uft"/>
                 <constraint firstItem="E36-5h-lAZ" firstAttribute="trailing" secondItem="e80-zP-tm5" secondAttribute="trailing" id="W79-5I-PHC"/>
                 <constraint firstItem="znJ-xa-Ph8" firstAttribute="centerX" secondItem="Qny-fl-8Jy" secondAttribute="centerX" id="Wi6-ds-I9d"/>
                 <constraint firstItem="E36-5h-lAZ" firstAttribute="leading" secondItem="e80-zP-tm5" secondAttribute="leading" id="Wtn-48-cag"/>
-                <constraint firstItem="Qny-fl-8Jy" firstAttribute="trailing" secondItem="e80-zP-tm5" secondAttribute="trailing" constant="30" id="YoD-H5-4Oi"/>
+                <constraint firstItem="FLE-Q2-0aU" firstAttribute="leading" secondItem="AaV-Kb-6kY" secondAttribute="leading" id="YJh-P6-oDQ"/>
+                <constraint firstAttribute="trailing" secondItem="e80-zP-tm5" secondAttribute="trailing" constant="30" id="YoD-H5-4Oi"/>
                 <constraint firstItem="TrN-aC-QYc" firstAttribute="leading" secondItem="Fog-kT-6bu" secondAttribute="trailing" constant="38" id="ZHs-w7-CGl"/>
                 <constraint firstItem="e80-zP-tm5" firstAttribute="leading" secondItem="Qny-fl-8Jy" secondAttribute="leading" constant="30" id="a9B-F9-qNB"/>
                 <constraint firstItem="e80-zP-tm5" firstAttribute="top" secondItem="Krx-Ot-goJ" secondAttribute="bottom" constant="30" id="gZy-TY-fGA"/>
                 <constraint firstItem="Krx-Ot-goJ" firstAttribute="top" secondItem="3oI-Q0-yOj" secondAttribute="bottom" constant="12" id="hC3-f4-wA4"/>
                 <constraint firstItem="BFi-Gs-KR7" firstAttribute="centerY" secondItem="Fog-kT-6bu" secondAttribute="centerY" id="hGp-Wr-bak"/>
+                <constraint firstAttribute="trailing" secondItem="FLE-Q2-0aU" secondAttribute="trailing" id="oO7-sQ-S2k"/>
                 <constraint firstItem="Htp-0T-W9D" firstAttribute="leading" secondItem="IVN-f5-gSP" secondAttribute="trailing" constant="10" id="sgN-0s-ZlU"/>
-                <constraint firstItem="Qny-fl-8Jy" firstAttribute="trailing" secondItem="znJ-xa-Ph8" secondAttribute="trailing" constant="30" id="ta6-iN-Hgd"/>
+                <constraint firstAttribute="trailing" secondItem="znJ-xa-Ph8" secondAttribute="trailing" constant="30" id="ta6-iN-Hgd"/>
                 <constraint firstItem="Qny-fl-8Jy" firstAttribute="bottom" secondItem="IVN-f5-gSP" secondAttribute="bottom" constant="24" id="vDh-nK-hst"/>
                 <constraint firstItem="znJ-xa-Ph8" firstAttribute="leading" secondItem="Qny-fl-8Jy" secondAttribute="leading" constant="30" id="vrG-VU-UvB"/>
                 <constraint firstItem="E36-5h-lAZ" firstAttribute="top" secondItem="e80-zP-tm5" secondAttribute="bottom" constant="2" id="w2e-B4-1Dd"/>
                 <constraint firstItem="Krx-Ot-goJ" firstAttribute="leading" secondItem="Qny-fl-8Jy" secondAttribute="leading" constant="30" id="wNi-3u-dyd"/>
                 <constraint firstItem="Htp-0T-W9D" firstAttribute="centerY" secondItem="IVN-f5-gSP" secondAttribute="centerY" id="xsq-IC-DHk"/>
+                <constraint firstItem="FLE-Q2-0aU" firstAttribute="top" secondItem="AaV-Kb-6kY" secondAttribute="top" id="xum-wU-f7U"/>
                 <constraint firstItem="KxY-Sf-0v5" firstAttribute="top" secondItem="Krx-Ot-goJ" secondAttribute="bottom" constant="4" id="zim-Sc-asD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Qny-fl-8Jy"/>
@@ -151,12 +227,30 @@
                 <outlet property="currentTimeLabel" destination="KxY-Sf-0v5" id="Qhb-Zo-D2u"/>
                 <outlet property="currentTimeSlider" destination="Krx-Ot-goJ" id="rzB-dT-wUs"/>
                 <outlet property="durationLabel" destination="hqJ-c4-lTC" id="yea-US-BjM"/>
+                <outlet property="miniNextTrackButton" destination="7I4-kA-9nt" id="iyN-Ft-ati"/>
+                <outlet property="miniPlayPauseButton" destination="JIU-sa-aiO" id="1VD-ZH-aXF"/>
+                <outlet property="miniPlayerView" destination="FLE-Q2-0aU" id="1DH-Nw-rhH"/>
+                <outlet property="miniTrackImageView" destination="kJ8-yG-U6B" id="l1f-Rl-DSj"/>
+                <outlet property="miniTrackTitleLabel" destination="bG3-rb-Uqk" id="gCX-mZ-N9Y"/>
                 <outlet property="playPauseButton" destination="Fog-kT-6bu" id="6YW-Qr-3Vy"/>
                 <outlet property="trackImageView" destination="3oI-Q0-yOj" id="9gh-jL-qoL"/>
                 <outlet property="trackTitleLabel" destination="e80-zP-tm5" id="CX5-ZX-aeX"/>
                 <outlet property="volumeSlider" destination="IVN-f5-gSP" id="hPg-MY-J3i"/>
+                <outletCollection property="fullScreenView" destination="znJ-xa-Ph8" collectionClass="NSMutableArray" id="5hp-ny-Osy"/>
+                <outletCollection property="fullScreenView" destination="Htp-0T-W9D" collectionClass="NSMutableArray" id="NbT-Dj-rl3"/>
+                <outletCollection property="fullScreenView" destination="3oI-Q0-yOj" collectionClass="NSMutableArray" id="2f4-u0-piv"/>
+                <outletCollection property="fullScreenView" destination="Krx-Ot-goJ" collectionClass="NSMutableArray" id="mUv-d7-dZb"/>
+                <outletCollection property="fullScreenView" destination="KxY-Sf-0v5" collectionClass="NSMutableArray" id="43o-1P-j1E"/>
+                <outletCollection property="fullScreenView" destination="hqJ-c4-lTC" collectionClass="NSMutableArray" id="nfk-oc-ZGu"/>
+                <outletCollection property="fullScreenView" destination="e80-zP-tm5" collectionClass="NSMutableArray" id="NHN-A6-V2w"/>
+                <outletCollection property="fullScreenView" destination="E36-5h-lAZ" collectionClass="NSMutableArray" id="2se-Hy-YEV"/>
+                <outletCollection property="fullScreenView" destination="Fog-kT-6bu" collectionClass="NSMutableArray" id="5qM-nC-ghM"/>
+                <outletCollection property="fullScreenView" destination="TrN-aC-QYc" collectionClass="NSMutableArray" id="BV2-BD-Fc8"/>
+                <outletCollection property="fullScreenView" destination="YH4-Ns-jlx" collectionClass="NSMutableArray" id="8JI-1f-4a4"/>
+                <outletCollection property="fullScreenView" destination="IVN-f5-gSP" collectionClass="NSMutableArray" id="ec1-PV-S3H"/>
+                <outletCollection property="fullScreenView" destination="BFi-Gs-KR7" collectionClass="NSMutableArray" id="6Ho-c6-LvC"/>
             </connections>
-            <point key="canvasLocation" x="-343" y="269"/>
+            <point key="canvasLocation" x="-343.125" y="268.3098591549296"/>
         </view>
     </objects>
     <resources>
@@ -166,5 +260,6 @@
         <image name="Left" width="34" height="20"/>
         <image name="Right" width="34" height="20"/>
         <image name="pause" width="57" height="57"/>
+        <image name="play" width="59" height="59"/>
     </resources>
 </document>
