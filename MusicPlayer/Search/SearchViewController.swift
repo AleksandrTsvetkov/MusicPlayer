@@ -92,7 +92,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = footerView
-        
+        tableView.keyboardDismissMode = .onDrag
     }
 }
 

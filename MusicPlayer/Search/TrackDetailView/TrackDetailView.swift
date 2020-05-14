@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 protocol PlaylistNavigationDelegate: class {
     func switchToPreviousTrack() -> SearchViewModel.Cell?
@@ -30,6 +31,7 @@ class TrackDetailView: UIView {
         player.automaticallyWaitsToMinimizeStalling = false
         return player
     }()
+    private let mpVolumeView = MPVolumeView()
     
     weak var playlistDelegate: PlaylistNavigationDelegate!
     weak var transitionDelegate: TrackDetailViewTransitionDelegate!
@@ -39,6 +41,10 @@ class TrackDetailView: UIView {
         super.awakeFromNib()
         trackImageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         trackImageView.layer.cornerRadius = 5
+        if let view = mpVolumeView.subviews.first as? UISlider {
+            volumeSlider.value = view.value
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(volumeDidChange), name: NSNotification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"), object: nil)
     }
     
     func set(viewModel: SearchViewModel.Cell) {
@@ -64,6 +70,12 @@ class TrackDetailView: UIView {
         let playerItem = AVPlayerItem(url: url)
         avPlayer.replaceCurrentItem(with: playerItem)
         avPlayer.play()
+    }
+    
+    @objc private func volumeDidChange() {
+        if let view = mpVolumeView.subviews.first as? UISlider {
+             volumeSlider.value = view.value
+        }
     }
     
     //MARK: TIME SETUP
@@ -121,7 +133,10 @@ class TrackDetailView: UIView {
     }
     
     @IBAction func handleVolumeSlider(_ sender: UISlider) {
-        avPlayer.volume = volumeSlider.value
+        //avPlayer.volume = volumeSlider.value
+        if let view = mpVolumeView.subviews.first as? UISlider {
+             view.value = volumeSlider.value
+        }
     }
     
     @IBAction func previousTrack(_ sender: UIButton) {
