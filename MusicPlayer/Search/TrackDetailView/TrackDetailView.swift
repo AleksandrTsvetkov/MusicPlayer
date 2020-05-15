@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 
-protocol PlaylistNavigationDelegate: class {
+protocol PlaylistNavigationDelegate {
     func switchToPreviousTrack() -> SearchViewModel.Cell?
     func switchToNextTrack() -> SearchViewModel.Cell?
 }
@@ -42,7 +42,7 @@ class TrackDetailView: UIView {
     }()
     private let mpVolumeView = MPVolumeView()
     
-    weak var playlistDelegate: PlaylistNavigationDelegate!
+    var playlistDelegate: PlaylistNavigationDelegate!
     weak var transitionDelegate: TrackDetailViewTransitionDelegate!
     
     //MARK: INITIAL SETUP
@@ -246,7 +246,7 @@ class TrackDetailView: UIView {
     }
     
     @IBAction func nextTrack(_ sender: UIButton) {
-        guard let cellViewModel = playlistDelegate.switchToPreviousTrack() else { return }
+        guard let cellViewModel = playlistDelegate.switchToNextTrack() else { return }
         self.set(viewModel: cellViewModel)
     }
     

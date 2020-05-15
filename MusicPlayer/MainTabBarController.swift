@@ -19,8 +19,8 @@ class MainTabBarController: UITabBarController {
     private var minTopAnchorConstraint: NSLayoutConstraint!
     private var maxTopAnchorConstraint: NSLayoutConstraint!
     private var bottomAnchorConstraint: NSLayoutConstraint!
-    private let searchVC = SearchViewController(nibName: "SearchViewController", bundle: nil)
-    private let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
+    private var searchVC = SearchViewController(nibName: "SearchViewController", bundle: nil)
+    var trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -82,6 +82,18 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         setupTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let window = UIApplication.shared.connectedScenes
+            .filter({ $0.activationState == .foregroundActive })
+            .map({ $0 as? UIWindowScene })
+            .compactMap({ $0 })
+            .first?.windows
+            .filter({ $0.isKeyWindow }).first
+        let mainTabBarController = window?.rootViewController as? MainTabBarController
+        mainTabBarController?.trackDetailView.playlistDelegate = self
+    }
+    
     //MARK: FUNCTIONS
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
         switch viewModel {

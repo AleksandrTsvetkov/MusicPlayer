@@ -48,6 +48,15 @@ struct Library: View {
                             self.track = track
                             self.showingAlert = true
                         }.simultaneously(with: TapGesture().onEnded({ _ in
+                            let window = UIApplication.shared.connectedScenes
+                                .filter({ $0.activationState == .foregroundActive })
+                                .map({ $0 as? UIWindowScene })
+                                .compactMap({ $0 })
+                                .first?.windows
+                                .filter({ $0.isKeyWindow }).first
+                            let mainTabBarController = window?.rootViewController as? MainTabBarController
+                            mainTabBarController?.trackDetailView.playlistDelegate = self
+                            
                             self.track = track
                             self.transitionDelegate?.maximizeTrackDetailView(viewModel: self.track)
                         })))
@@ -98,6 +107,33 @@ struct LibraryCell: View {
                 Text(cell.artistName).foregroundColor(Color(UIColor(hex: "7E7E85")))
             }
         }
+    }
+}
+
+extension Library: PlaylistNavigationDelegate {
+    
+    func switchToPreviousTrack() -> SearchViewModel.Cell? {
+        guard let index = tracks.firstIndex(of: track) else { return nil }
+        var nextTrack: SearchViewModel.Cell
+        if index == 0 {
+            nextTrack = tracks[tracks.count - 1]
+        } else {
+            nextTrack = tracks[index - 1]
+        }
+        self.track = nextTrack
+        return nextTrack
+    }
+    
+    func switchToNextTrack() -> SearchViewModel.Cell? {
+        guard let index = tracks.firstIndex(of: track) else { return nil }
+        var nextTrack: SearchViewModel.Cell
+        if index + 1 == tracks.count {
+            nextTrack = tracks[0]
+        } else {
+            nextTrack = tracks[index + 1]
+        }
+        self.track = nextTrack
+        return nextTrack
     }
 }
 
