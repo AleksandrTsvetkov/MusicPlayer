@@ -62,8 +62,8 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController: TrackDetailViewTransitionDelegate {
     
     func maximizeTrackDetailView(viewModel: SearchViewModel.Cell?) {
-        maxTopAnchorConstraint.isActive = true
         minTopAnchorConstraint.isActive = false
+        maxTopAnchorConstraint.isActive = true
         maxTopAnchorConstraint.constant = 0
         bottomAnchorConstraint.constant = 0
         

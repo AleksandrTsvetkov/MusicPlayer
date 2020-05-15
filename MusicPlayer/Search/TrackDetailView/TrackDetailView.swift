@@ -73,6 +73,7 @@ class TrackDetailView: UIView {
     private func setupGestures() {
         miniPlayerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         miniPlayerView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissalPan)))
     }
     
     //MARK: METHODS
@@ -97,13 +98,35 @@ class TrackDetailView: UIView {
     @objc private func handlePan(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .began:
-            print("began")
+            break
         case .changed:
             handlePanChangedState(gesture: gesture)
         case .ended:
             handlePanEndedState(gesture: gesture)
         default:
-            print("default")
+            break
+        }
+    }
+    
+    @objc private func handleDismissalPan(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .changed:
+            let translation = gesture.translation(in: self.superview)
+            _ = self.fullScreenView.map { element in
+                element.transform  = CGAffineTransform(translationX: 0, y: translation.y)
+            }
+        case .ended:
+            let translation = gesture.translation(in: self.superview)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+                _ = self.fullScreenView.map { element in
+                    element.transform  = .identity
+                }
+                if translation.y > 50 {
+                    self.transitionDelegate.minimizeTrackDetailView()
+                }
+            })
+        default:
+            break
         }
     }
     

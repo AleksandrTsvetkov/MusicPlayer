@@ -55,6 +55,21 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         router.viewController     = viewController
     }
     
+    private func setupSearchBar() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+    }
+    
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: TrackCell.reuseId)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = footerView
+        tableView.keyboardDismissMode = .onDrag
+    }
+    
     // MARK: Routing
     
     
@@ -78,21 +93,6 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         case .displayFooterView:
             footerView.showLoader()
         }
-    }
-    
-    private func setupSearchBar() {
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.delegate = self
-    }
-    
-    private func setupTableView() {
-        tableView.register(UINib(nibName: "TrackCell", bundle: nil), forCellReuseIdentifier: TrackCell.reuseId)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = footerView
-        tableView.keyboardDismissMode = .onDrag
     }
 }
 
