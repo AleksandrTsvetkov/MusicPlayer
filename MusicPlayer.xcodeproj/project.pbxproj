@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		1F170C2F246878BE0064C6D4 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F170C2E246878BE0064C6D4 /* TrackCell.swift */; };
 		1F5F32E8246E1F2F007FE7F6 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F32E7246E1F2F007FE7F6 /* Library.swift */; };
 		1F5F32EA246E2341007FE7F6 /* Color + HexValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F32E9246E2341007FE7F6 /* Color + HexValue.swift */; };
+		1F608585246EF0440053A8DD /* UserDefaults + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F608584246EF0440053A8DD /* UserDefaults + extension.swift */; };
+		1F608588246F01650053A8DD /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1F608587246F01650053A8DD /* URLImage */; };
 		1F655EBE246B297D000BE361 /* CMTime + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F655EBD246B297D000BE361 /* CMTime + Extension.swift */; };
 		1FDFA44D245F240500851E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDFA44C245F240500851E9F /* AppDelegate.swift */; };
 		1FDFA44F245F240500851E9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDFA44E245F240500851E9F /* SceneDelegate.swift */; };
@@ -44,6 +46,7 @@
 		1F2FDE4B4D1A464E1D115304 /* Pods-MusicPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicPlayer.release.xcconfig"; path = "Target Support Files/Pods-MusicPlayer/Pods-MusicPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		1F5F32E7246E1F2F007FE7F6 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		1F5F32E9246E2341007FE7F6 /* Color + HexValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + HexValue.swift"; sourceTree = "<group>"; };
+		1F608584246EF0440053A8DD /* UserDefaults + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults + extension.swift"; sourceTree = "<group>"; };
 		1F655EBD246B297D000BE361 /* CMTime + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extension.swift"; sourceTree = "<group>"; };
 		1FDFA449245F240500851E9F /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDFA44C245F240500851E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F608588246F01650053A8DD /* URLImage in Frameworks */,
 				CCDF01C31581ED6B9280A228 /* libPods-MusicPlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +179,7 @@
 				1F5F32E9246E2341007FE7F6 /* Color + HexValue.swift */,
 				1F655EBD246B297D000BE361 /* CMTime + Extension.swift */,
 				1F15686A246C2E4100504445 /* Nib.swift */,
+				1F608584246EF0440053A8DD /* UserDefaults + extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,6 +236,9 @@
 			dependencies = (
 			);
 			name = MusicPlayer;
+			packageProductDependencies = (
+				1F608587246F01650053A8DD /* URLImage */,
+			);
 			productName = MusicPlayer;
 			productReference = 1FDFA449245F240500851E9F /* MusicPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -259,6 +267,9 @@
 				Base,
 			);
 			mainGroup = 1FDFA440245F240500851E9F;
+			packageReferences = (
+				1F608586246F01650053A8DD /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 1FDFA44A245F240500851E9F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,6 +338,7 @@
 				1F170C2F246878BE0064C6D4 /* TrackCell.swift in Sources */,
 				1FF51C522464485C007B07E2 /* SearchRouter.swift in Sources */,
 				1F5F32EA246E2341007FE7F6 /* Color + HexValue.swift in Sources */,
+				1F608585246EF0440053A8DD /* UserDefaults + extension.swift in Sources */,
 				1FF51C5824645689007B07E2 /* SearchViewController.swift in Sources */,
 				1FF51C532464485C007B07E2 /* SearchModels.swift in Sources */,
 				1FDFA44F245F240500851E9F /* SceneDelegate.swift in Sources */,
@@ -526,6 +538,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F608586246F01650053A8DD /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F608587246F01650053A8DD /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F608586246F01650053A8DD /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FDFA441245F240500851E9F /* Project object */;
 }
