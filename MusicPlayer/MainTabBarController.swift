@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol TrackDetailViewTransitionDelegate: class {
     func minimizeTrackDetailView()
@@ -28,10 +29,12 @@ class MainTabBarController: UITabBarController {
         
         setupTrackDetailView()
         searchVC.transitionDelegate = self
-        let libraryVC = UIViewController()
+        
+        let library = Library()
+        let hostVC = UIHostingController(rootView: library)
         let searchNC = generateViewController(rootViewController: searchVC, image: UIImage(named: "Search"), title: "Search")
-        let libraryNC = generateViewController(rootViewController: libraryVC, image: UIImage(named: "Library"), title: "Library")
-        viewControllers = [searchNC, libraryNC]
+        //let libraryNC = generateViewController(rootViewController: hostVC, image: UIImage(named: "Library"), title: "Library")
+        viewControllers = [searchNC, hostVC]
     }
     
     private func generateViewController(rootViewController: UIViewController, image: UIImage?, title : String) -> UIViewController {
