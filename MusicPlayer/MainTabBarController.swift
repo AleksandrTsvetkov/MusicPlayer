@@ -25,13 +25,15 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3764705882, alpha: 1)
+        tabBar.tintColor = UIColor(hex: "FF0060")
         
         setupTrackDetailView()
         searchVC.transitionDelegate = self
         
         let library = Library()
         let hostVC = UIHostingController(rootView: library)
+        hostVC.tabBarItem.image = UIImage(named: "Library")
+        hostVC.tabBarItem.title = "Library"
         let searchNC = generateViewController(rootViewController: searchVC, image: UIImage(named: "Search"), title: "Search")
         //let libraryNC = generateViewController(rootViewController: hostVC, image: UIImage(named: "Library"), title: "Library")
         viewControllers = [searchNC, hostVC]
