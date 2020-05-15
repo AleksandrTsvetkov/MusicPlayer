@@ -28,7 +28,7 @@ class MainTabBarController: UITabBarController {
         
         setupTrackDetailView()
         searchVC.transitionDelegate = self
-        let libraryVC = ViewController()
+        let libraryVC = UIViewController()
         let searchNC = generateViewController(rootViewController: searchVC, image: UIImage(named: "Search"), title: "Search")
         let libraryNC = generateViewController(rootViewController: libraryVC, image: UIImage(named: "Library"), title: "Library")
         viewControllers = [searchNC, libraryNC]

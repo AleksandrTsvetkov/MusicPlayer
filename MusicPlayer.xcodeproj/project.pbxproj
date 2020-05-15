@@ -15,12 +15,10 @@
 		1F655EBE246B297D000BE361 /* CMTime + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F655EBD246B297D000BE361 /* CMTime + Extension.swift */; };
 		1FDFA44D245F240500851E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDFA44C245F240500851E9F /* AppDelegate.swift */; };
 		1FDFA44F245F240500851E9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDFA44E245F240500851E9F /* SceneDelegate.swift */; };
-		1FDFA451245F240500851E9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDFA450245F240500851E9F /* ViewController.swift */; };
 		1FDFA454245F240500851E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDFA452245F240500851E9F /* Main.storyboard */; };
 		1FDFA456245F240900851E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDFA455245F240900851E9F /* Assets.xcassets */; };
 		1FDFA459245F240900851E9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDFA457245F240900851E9F /* LaunchScreen.storyboard */; };
 		1FDFA461245F246000851E9F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDFA460245F246000851E9F /* MainTabBarController.swift */; };
-		1FDFA463245F25C200851E9F /* SearchMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDFA462245F25C200851E9F /* SearchMusicViewController.swift */; };
 		1FF51C502464485C007B07E2 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF51C492464485C007B07E2 /* SearchPresenter.swift */; };
 		1FF51C512464485C007B07E2 /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF51C4A2464485C007B07E2 /* SearchWorker.swift */; };
 		1FF51C522464485C007B07E2 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF51C4B2464485C007B07E2 /* SearchRouter.swift */; };
@@ -47,13 +45,11 @@
 		1FDFA449245F240500851E9F /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FDFA44C245F240500851E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FDFA44E245F240500851E9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1FDFA450245F240500851E9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1FDFA453245F240500851E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FDFA455245F240900851E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FDFA458245F240900851E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FDFA45A245F240900851E9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FDFA460245F246000851E9F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		1FDFA462245F25C200851E9F /* SearchMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicViewController.swift; sourceTree = "<group>"; };
 		1FF51C492464485C007B07E2 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		1FF51C4A2464485C007B07E2 /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
 		1FF51C4B2464485C007B07E2 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
@@ -123,8 +119,6 @@
 			children = (
 				1FFCDD0B2468866500908DC6 /* Helpers */,
 				1FDFA460245F246000851E9F /* MainTabBarController.swift */,
-				1FDFA462245F25C200851E9F /* SearchMusicViewController.swift */,
-				1FDFA450245F240500851E9F /* ViewController.swift */,
 				1FDFA452245F240500851E9F /* Main.storyboard */,
 				1FF51C382464477D007B07E2 /* Search */,
 				1FF51C48246447F0007B07E2 /* Services */,
@@ -317,10 +311,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FDFA463245F25C200851E9F /* SearchMusicViewController.swift in Sources */,
 				1F15686B246C2E4100504445 /* Nib.swift in Sources */,
 				1FFCDD102468ADA400908DC6 /* UIColor + HexValue.swift in Sources */,
-				1FDFA451245F240500851E9F /* ViewController.swift in Sources */,
 				1F15758924637A920053028F /* SearchResponse.swift in Sources */,
 				1FF51C552464485C007B07E2 /* SearchInteractor.swift in Sources */,
 				1FDFA44D245F240500851E9F /* AppDelegate.swift in Sources */,
