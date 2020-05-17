@@ -231,6 +231,8 @@ class TrackDetailView: UIView {
         self.set(viewModel: cellViewModel)
     }
     
+    
+    
     @IBAction func playPauseAction(_ sender: UIButton) {
         if avPlayer.timeControlStatus == .paused {
             avPlayer.play()
