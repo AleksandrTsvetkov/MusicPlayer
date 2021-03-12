@@ -29,7 +29,7 @@ class MainTabBarController: UITabBarController {
         
         setupTrackDetailView()
         searchVC.transitionDelegate = self
-        
+        searchVC.restorationIdentifier = "SearchViewController"
         var library = Library()
         library.transitionDelegate = self
         let hostVC = UIHostingController(rootView: library)
